@@ -1,0 +1,19 @@
+{
+  "name": "med3d",
+  "version": "1.0.0",
+  "description": "Med 3D Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Holmberg Robles Young",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.6"
+  }
+}
