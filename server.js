@@ -69,9 +69,8 @@
    * Models
    */
   
-  const Appointment = require("./models/appointment.js");
-  const seedData = require("./models/seed_appointment.js");
-  // const User = require("../models/user.js");
+  
+  
   
   /**
    * Controllers
