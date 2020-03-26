@@ -69,7 +69,11 @@
    * Models
    */
   
-  
+  const Product = require("./models/product.js");
+const seedData = require("./models/seed_product.js");
+
+const Order = require("./models/order.js");
+const orderSeedData = require("./models/seed_order.js");
   
   
   /**
@@ -82,7 +86,8 @@
   const sessionsController = require("./controllers/sessions.js");
   app.use("/sessions", sessionsController);
   
-  
+  const productsController = require("./controllers/products.js");
+  app.use("/med3d", productsController);
   
   /**
    * Public Sources
@@ -98,6 +103,40 @@
       });
     });
   
+
+  /**
+  * SEED ROUTE - push products into the database for testing
+  */
+ app.get("/med3d/seed/products", (req,res) => {
+    
+  Product.insertMany(seedData, (err, products) => {
+      if (err) { 
+          console.log(`Error Seeding the Database: ${err}`);
+      } else {
+          console.log("Added product data provided", products);
+          console.log(products);
+          
+      }
+      
+      res.send("Product Seeding Executed!");
+  });
+});
+
+/** SEED Route for Orders
+ * push orders into the database for testing.
+ */
+
+ app.get("/med3d/seed/orders", (req, res) => {
+   Order.insertMany(orderSeedData, (err,orders) => {
+     if (err) {
+       console.log("Error Seeding Order Data", err);
+     } else {
+       console.log("Added Order data provided", orders);
+     }
+
+     res.send("Order Seeding Executed");
+   })
+ })
   
    /**
     * LISTENER
