@@ -71,6 +71,9 @@
   
   const Product = require("./models/product.js");
 const seedData = require("./models/seed_product.js");
+
+const Order = require("./models/order.js");
+const orderSeedData = require("./models/seed_order.js");
   
   
   /**
@@ -110,7 +113,7 @@ const seedData = require("./models/seed_product.js");
       if (err) { 
           console.log(`Error Seeding the Database: ${err}`);
       } else {
-          console.log("Added appointment data provided", products);
+          console.log("Added product data provided", products);
           console.log(products);
           
       }
@@ -119,6 +122,21 @@ const seedData = require("./models/seed_product.js");
   });
 });
 
+/** SEED Route for Orders
+ * push orders into the database for testing.
+ */
+
+ app.get("/med3d/seed/orders", (req, res) => {
+   Order.insertMany(orderSeedData, (err,orders) => {
+     if (err) {
+       console.log("Error Seeding Order Data", err);
+     } else {
+       console.log("Added Order data provided", orders);
+     }
+
+     res.send("Order Seeding Executed");
+   })
+ })
   
    /**
     * LISTENER
