@@ -2,26 +2,28 @@
 <html>
 
 <head>
-  
-  
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/app.css" />
   <title>Med 3D</title>
 </head>
 
 <body>
-  <h1>
-    Welcome to Med 3D
-  </h1>
-  <h2>Sign Up, Help Out</h2>
-  <BR>
-  
-    <ul>
-      <li><a href="/sessions/new">Log In</a></li>
-      <li><a href="/users/new">New? Register Here!</a></li>
-    </u>
+  <% if(!currentUser) { %>
+            
+    <%- include('../views/partials/login.ejs') %>
+<% } else if (currentUser.role === "medical"){ %>
+    <%- include('../views/partials/med_dash.ejs') %>
+<% } else { %>
+  <%- include('../views/partials/printer_dash.ejs') %>
+<% } %>
    
 
-  
+<footer>
+  <a href="/contactus">Contact Us</a>
+</footer>
 
 </body>
+
 
 </html>

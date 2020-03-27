@@ -9,12 +9,13 @@
 
   // ensure our app looks at the .env file
 
-  require("dotenv").config();
+  require("dotenv").config();;
   const express = require('express');
   const mongoose = require('mongoose');
   const methodOverride = require("method-override");
   const session = require("express-session");
   const moment = require("moment-timezone");
+  
   
   
   
@@ -94,14 +95,23 @@ const orderSeedData = require("./models/seed_order.js");
    */
   app.use(express.static('public'));
   
-  
     
- 
-    app.get("/", (req, res) => {
-      res.render("index.ejs", {
+  app.get("/", (req, res) => {
+    if(req.session.currentUser) {
+        Order.find((err, foundOrders) => {
+            res.render("index.ejs", {
+                currentUser: req.session.currentUser,  
+                orders: foundOrders
+            })
+            
+        })
+        
+    } else {
+        res.render('index.ejs', {
         currentUser: req.session.currentUser
-      });
-    });
+        });
+    }
+  });
   
 
   /**

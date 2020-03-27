@@ -1,0 +1,45 @@
+
+    <div class="page-container">
+        
+        <div class="container">
+            <div class="header">
+                <%- include('printnav.ejs') %>
+                <h2><%= currentUser.username %></h2>
+            </div>
+            <div class="orders">
+                <div class="current-orders">
+                    <h3>Current Orders</h3>
+                    <ul>
+                        <li><strong>ORDER ID: </strong><%= orders[1]._id %></li>
+                        <li><strong>ORDER FOR: </strong><%= orders[1].requestor_name %></li>
+                        <li><strong>PRODUCTION QTY: </strong>5</li>
+                    </ul>
+                   <div class="buttons">
+                        <form action="/<%= orders._id %>?_method=DELETE" method="POST">
+                            <input class="cancel" type="submit" value="Cancel Order"/>
+                        </form>
+                        <button>Complete Order</button>
+                   </div>
+    
+                </div>
+                <div class="complete">
+                    <h3>Completed Orders</h3>
+                    <ul>
+                        
+                        <li><strong>ORDER ID: </strong><%= orders[1]._id %></li>
+                        <li><strong>ORDER FOR: </strong><%= orders[1].requestor_name %></li>
+                        <li><strong>PRODUCTION QTY: </strong>5</li>
+                    
+                    </ul>
+                    <div class="buttons">
+                        <form action="/<%= orders._id %>?_method=DELETE" method="POST">
+                            <input class="cancel" type="submit" value="Remove Order"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+             
+            
+        </div>
+    </div>
+    

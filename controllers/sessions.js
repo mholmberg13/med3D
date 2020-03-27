@@ -17,8 +17,8 @@ router.post("/", (req, res) => {
     if (bcrypt.compareSync(req.body.password, foundUser.password)) {
       req.session.currentUser = foundUser;
       
-      res.send("USER LOGGED IN");
-        // res.redirect("/");
+      // res.send("USER LOGGED IN");
+        res.redirect("/");
     //   res.redirect("/app");
     } else {
       // res.send("wrong password");
