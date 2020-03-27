@@ -8,6 +8,10 @@ const User = require("../models/users.js");
 const medController = require("../controllers/med.js");
 router.use("/med3D/med", medController);
 
+// recognize controller for Order routes
+const ordersController = require("../controllers/orders.js");
+router.use("/orders", ordersController);
+
 router.get("/new", (req, res) => {
   res.render("sessions/new.ejs");
 });
