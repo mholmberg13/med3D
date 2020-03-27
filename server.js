@@ -88,6 +88,9 @@ const orderSeedData = require("./models/seed_order.js");
   
   const productsController = require("./controllers/products.js");
   app.use("/med3d", productsController);
+
+  const ordersController = require("./controllers/orders.js");
+  app.use("/orders", ordersController);
   
   /**
    * Public Sources
