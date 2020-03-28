@@ -28,6 +28,16 @@ const Order = require("../models/order.js");
       Order.create(req.body, (error, result) => {
         res.send("Order.js Controller - Created Record in DB");
       })
-  })
+  });
+
+  /**
+   * SHOW route - Display details of a single order
+   */
+
+   router.get("/:id", (req, res) => {
+       Order.findById(req.params.id, (err, foundOrder) => {
+           res.send(foundOrder);
+       })
+   });
 
 module.exports = router;
