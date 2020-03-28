@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Edit Order</h1>
+
+    <form action="/tournaments/<%=tournaments.id%>?_method=PUT" method="POST">
+      Name:
+      <input
+        type="text"
+        name="name"
+        value="<%=oreders.requestor_name%>"
+      /><br />
+
+      Product
+      <input
+        type="text"
+        name="product"
+        value="<%=orders.product_name%>"
+      /><br />
+
+      Quantity:
+      <input type="text" name="quantity" value="<%=orders.quantity%>" />
+      <br />
+
+      Shipping Address:
+      <input type="text" name="location" value="<%=orders.location%>" /><br />
+
+      <input type="submit" name="" value="Submit Changes" />
+    </form>
+  </body>
+</html>
