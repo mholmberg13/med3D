@@ -6,7 +6,7 @@ const User = require("../models/users.js");
 
 // recognize controller for Med routes
 const medController = require("../controllers/med.js");
-router.use("/med3D/med", medController);
+router.use("/med3D/med.js", medController);
 
 // recognize controller for Order routes
 const ordersController = require("../controllers/orders.js");
@@ -24,13 +24,8 @@ router.post("/", (req, res) => {
       req.session.currentUser = foundUser;
      // determine the user type (Med or Printer), redirect accordingly.
     //  console.log('The session', req);
-     if (req.session.currentUser.role === "medical") {
-       console.log('Attempting to redirect to med index route');
-        res.redirect("sessions/med3D/med");
-     } 
-      
-      // res.send("USER LOGGED IN");
         res.redirect("/");
+    
     //   res.redirect("/app");
     } else {
       
