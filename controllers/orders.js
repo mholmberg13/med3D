@@ -4,6 +4,36 @@ const moment = require("moment-timezone");
 
 const Order = require("../models/order.js");
 
+/**
+ * EDIT  - Displays page where we can edit an order for 
+ * the Med currently logged in.
+ */
+
+router.get("/:id/edit", (req, res) => {
+  if (req.session.currentUser) {
+      res.send("Med.js Controller - PLACEHOLDER for Order EDIT routing");
+  } else {
+      res.redirect("/sessions/new");
+  }
+});
+
+/**
+ * UPDATE - PUT revised order data into the database
+ */
+
+ router.put("/:id", (req, res) => {
+   Order.findByIdAndUpdate(
+     req.params.id,
+     req.body,
+     {new: true},
+     (err, updateOrder) => {
+      //  res.redirect(`/orders/${req.params.id}`);
+      res.send(updateOrder);
+     }
+   )
+ })
+
+
 /** 
    * CREATE - Store new order in the database
    * const orderSchema = new mongoose.Schema({
@@ -31,6 +61,22 @@ const Order = require("../models/order.js");
   });
 
   /**
+   * Med - Create New Order routing
+   * Redirects to form that captures new order data.
+   */
+  router.get("/new", (req, res) => {
+    if (req.session.currentUser) {
+        res.send("Order.js Controller - PLACEHOLDER: Form to capture new order data goes here");
+        // res.render("../views/appointment/new.ejs",
+        // {creator: req.body.creator,
+        //     username: req.session.currentUser.username
+        // });
+    } else {
+        res.redirect("/sessions/new");
+    }
+  });
+
+  /**
    * SHOW route - Display details of a single order
    */
 
@@ -40,4 +86,17 @@ const Order = require("../models/order.js");
        })
    });
 
+   /** DELETE Route - Remove Order from the database */
+   router.delete("/:id", (req, res) => {
+     if (req.session.currentUser) {
+       Order.findByIdAndRemove(
+         req.params.id,
+         (err, orderData) => {
+           res.send(`Order.js - Deleted ${req.params.id}`);
+         }
+       )
+     } else {
+       res.redirect("/sessions/new");
+     }
+   })
 module.exports = router;
