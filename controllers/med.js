@@ -23,6 +23,7 @@ router.get("/orders/:id/edit", (req, res) => {
   }
 });
 
+
 /**
   * INDEX Route - for Med
   * Display all orders placed by this user
@@ -45,20 +46,7 @@ router.get("/orders/:id/edit", (req, res) => {
       }
   });
 
-  /**
-   * Med - Create New Order routing
-   * Redirects to form that captures new order data.
-   */
-  router.get("/orders/new", (req, res) => {
-    if (req.session.currentUser) {
-        res.send("Med.js Controller - PLACEHOLDER: Form to capture new order data goes here");
-        // res.render("../views/appointment/new.ejs",
-        // {creator: req.body.creator,
-        //     username: req.session.currentUser.username
-        // });
-    } else {
-        res.redirect("/sessions/new");
-    }
-  });
+  
+  
 
 module.exports = router;
