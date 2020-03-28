@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Med3D</title>
+  </head>
+  <body>
+    <h1>All Current Orders</h1>
+    <ul>
+      <% for(let i = 0; i < orders.length; i++) { %>
+      <li>
+        <a href="/orders/<%= orders[i].id %>">
+          <%= orders[i].requestor_name %>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
