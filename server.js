@@ -106,6 +106,7 @@ const orderSeedData = require("./models/seed_order.js");
         Order.find(
           {requestor_id: req.session.currentUser._id},
           (err, foundOrders) => {
+            console.log(foundOrders)
             res.render("index.ejs", {
                 currentUser: req.session.currentUser,  
                 orders: foundOrders

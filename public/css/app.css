@@ -25,11 +25,18 @@ body {
     
 }
 
+
+
+.header a {
+    margin-left: 20px;
+    color: rgba(255, 0, 0, 0.788);
+}
+
 footer {
     bottom: 0;
     position: fixed;
     text-align: center;
-    width: 100%;
+    width: 99%;
     margin-bottom: 15px;
 }
 
@@ -102,7 +109,7 @@ footer {
 .landingpage-container {
 
     display: flex;
-    align-items: center;
+    padding-top: 25%;
     justify-content: center;
     position:absolute;
     top:0;
@@ -112,22 +119,48 @@ footer {
 }
 
 .landing-container {
-    background-color: rgba(0, 0, 0, 0.288);
-    color: white;
-    border-radius: 3px;
     text-align: center;
-    height: 200px;
+    height: 20%;
     width: 300px;
     padding: 15px;
 }
 
-.landing-container a {
-    text-decoration: none;
+.landing-container h1 {
+    margin: 10px;
+}
+
+.landing-container form {
     color: white;
-    border: 2px solid white;
+}
+
+.landing-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.landing-container a {
+    
     padding: 5px;
     margin: 7px;
     margin-bottom: 15px;
+}
+
+.login {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(43, 146, 214, 0.411);;
+    width: 60px;
+    border: none;
+    font-size: 15px;
+    margin-top: 7px;
+} 
+
+.login-buttons a {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(43, 146, 214, 0.411);;
+    width: 60px;
+    border: none;
+    font-size: 15px;
+    margin-top: 7px;
 }
 
 input.in-up {
@@ -142,8 +175,7 @@ input.in-up {
 }
 
 .landing-container h3 {
-    margin-bottom: 30px;
-    color: rgb(218, 126, 40);
+    color: rgba(43, 146, 214, 0.411);
 }
 
 .landing-container form {
@@ -183,7 +215,7 @@ input.in-up {
     margin-left: 10px;
     margin-bottom: 5px;
     margin-top: 5px;
-    width: 100%;
+    width: 50%;
     padding: 10px;
 }
 

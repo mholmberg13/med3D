@@ -33,7 +33,7 @@ router.get("/orders/:id/edit", (req, res) => {
  router.get("/", (req,res) => {
    console.log(req);
     if (req.session.currentUser) {
-
+        
         Order.find(
           {requestor_id: req.session.currentUser._id },
           (error, medOrder) => {

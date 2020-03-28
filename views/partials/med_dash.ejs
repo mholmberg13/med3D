@@ -4,15 +4,20 @@
         <div class="header">
             <%- include('printnav.ejs') %>
             <h2><%= currentUser.username %></h2>
+            <a href="orders/new">New Order</a>
         </div>
         <div class="orders">
             <div class="current-orders">
                 <h3>Current Orders</h3>
-                <ul>
-                    <li><strong>ORDER ID: </strong><%= orders[0]._id %></li>
-                    <li><strong>ORDER FOR: </strong><%= orders[0].requestor_name %></li>
-                    <li><strong>QTY: </strong><%= orders[0].quantity %></li>
-                </ul>
+                <% if (orders.length > 0) { %>
+                    <ul>
+                        <li><strong>ORDER ID: </strong><%= orders[0]._id %></li>
+                        <li><strong>ORDER FOR: </strong><%= orders[0].requestor_name %></li>
+                        <li><strong>QTY: </strong><%= orders[0].quantity %></li>
+                    </ul>
+                <% } else { %>
+                    <h4>No Current Orders</h4>
+                <% } %>
                <div class="buttons">
                     <form action="/<%= orders._id %>?_method=DELETE" method="POST">
                         <input class="cancel" type="submit" value="Cancel Order"/>
@@ -22,13 +27,17 @@
             </div>
             <div class="complete">
                 <h3>Completed Orders</h3>
-                <ul>
+                <% if (orders.length > 0) { %>
+                    <ul>
+                        
+                        <li><strong>ORDER ID: </strong><%= orders[0]._id %></li>
+                        <li><strong>ORDER FOR: </strong><%= orders[0].requestor_name %></li>
+                        <li><strong>QTY: </strong><%= orders[0].quantity %></li>
                     
-                    <li><strong>ORDER ID: </strong><%= orders[0]._id %></li>
-                    <li><strong>ORDER FOR: </strong><%= orders[0].requestor_name %></li>
-                    <li><strong>QTY: </strong><%= orders[0].quantity %></li>
-                
-                </ul>
+                    </ul>
+                <% } else { %>
+                    <h4>No Current Orders</h4>
+                <% } %>
                 <div class="buttons">
                     <form action="/<%= orders._id %>?_method=DELETE" method="POST">
                         <input class="cancel" type="submit" value="Remove Order"/>
