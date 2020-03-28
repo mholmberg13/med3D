@@ -6,5 +6,5 @@
 | /sessions/med3D/med    	|  GET         	|    Index    	|
 | /sessions/med3D/med/orders/new    	|      GET     	|     New  	|
 | /orders    	|     POST      	|    Create   	|
-|     	|           	|        	|
+| /orders/:id    	|       GET    	|     Show   	|
 | /sessions/med3D/med/orders/:id/edit    	|      GET     	|      Edit  	|
