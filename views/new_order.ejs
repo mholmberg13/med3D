@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Anton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/app.css" />
+</head>
+  <body>
+    <div class="order-page-container">
+      <div class="new-order-container">
+        <h1>Create Order</h1>
+        <form action="/orders" method="POST">
+          Name: 
+          <input type="text" name="requestor_name" /><br />
+
+          Product: 
+          <input type="text" name="product_name" /><br />
+
+          Quantity: 
+          <input type="text" name="quantity" /> <br />
+
+          Shipping Address: 
+          <input type="text" name="location" /><br />
+
+          <input class="login" type="submit" name="" value="Submit Order" /><a href="/">Back</a>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

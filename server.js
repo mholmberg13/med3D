@@ -102,7 +102,8 @@ const orderSeedData = require("./models/seed_order.js");
     
   app.get("/", (req, res) => {
     console.log(req.session);
-    if(req.session.currentUser) {
+    if (req.session.currentUser) {
+    // if(req.session.currentUser.role === "medical") {
         Order.find(
           {requestor_id: req.session.currentUser._id},
           (err, foundOrders) => {

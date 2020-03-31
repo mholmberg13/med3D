@@ -66,7 +66,7 @@ router.get("/:id/edit", (req, res) => {
    */
   router.get("/new", (req, res) => {
     if (req.session.currentUser) {
-        res.send("Order.js Controller - PLACEHOLDER: Form to capture new order data goes here");
+        res.render("new_order.ejs");
         // res.render("../views/appointment/new.ejs",
         // {creator: req.body.creator,
         //     username: req.session.currentUser.username
