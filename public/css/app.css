@@ -383,3 +383,7 @@ input.add-park {
     padding: 3px 8px 3px 8px;
     cursor: pointer;
 }
+
+.daily-print {
+    margin-top: 20px;
+}

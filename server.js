@@ -161,6 +161,6 @@ const orderSeedData = require("./models/seed_order.js");
     * LISTENER
     */
   
-   app.listen(process.env.PORT, () => {
+   app.listen(process.env.PORT || 3003, () => {
       console.log("Server Up and Listening");
   });
