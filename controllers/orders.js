@@ -3,6 +3,9 @@ const router = express.Router();
 const moment = require("moment-timezone");
 
 const Order = require("../models/order.js");
+const User = require("../models/users.js");
+const { db } = require("../models/order.js");
+let dpa = 0;
 
 /**
  * EDIT  - Displays page where we can edit an order for 
@@ -57,7 +60,13 @@ router.get("/:id/edit", (req, res) => {
       
       Order.create(req.body, (error, result) => {
         res.send("Order.js Controller - Created Record in DB");
+      });
+      db.collection("users").find({}).toArray(function(err, result){
+        if (err) throw err;
+        console.log(result);
+        db.close();
       })
+
   });
 
   /**

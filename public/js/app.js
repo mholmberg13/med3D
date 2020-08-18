@@ -1,11 +1,10 @@
 $(document).ready(function(){
-    var role = $('.role input:radio[name=role');
+    let dpa = 0
 
-    var dailyPrint = $('.daily-print input:number[name=daily_pa');
-
-    if (role == "printer") {
-        $('.daily-print').css('display', '')
+    for (i = 0; i < users.length; i ++) {
+        dpa += users[i].daily_pa
     }
 
+    console.log(dpa)
 
 })
