@@ -61,12 +61,17 @@ router.get("/:id/edit", (req, res) => {
       Order.create(req.body, (error, result) => {
         res.send("Order.js Controller - Created Record in DB");
       });
-      let printer_arr = db.collection("users").find({role : "printer"})
+      let printer_arr = db.collection("users").find({role : "printer"}).toArray(function(err, result){
+        if (err) throw err;
+        db.close();
+      })
 
-      console.log("printarray" + printer_arr[0])
+      printer_arr.forEach(element => {
+        
+      });
 
-      for (const prop in printer_arr[0]) {
-        console.log(prop)
+      for (const daily_pa in printer_arr) {
+        console.log(`${daily_pa}: ${printer_arr[daily_pa]}`)
       }
 
   });
