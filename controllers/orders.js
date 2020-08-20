@@ -61,11 +61,13 @@ router.get("/:id/edit", (req, res) => {
       Order.create(req.body, (error, result) => {
         res.send("Order.js Controller - Created Record in DB");
       });
-      db.collection("users").find({}).toArray(function(err, result){
-        if (err) throw err;
-        console.log(result);
-        db.close();
-      })
+      let printer_arr = db.collection("users").find({role : "printer"})
+
+      console.log("printarray" + printer_arr[0])
+
+      for (const prop in printer_arr[0]) {
+        console.log(prop)
+      }
 
   });
 
